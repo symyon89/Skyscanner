@@ -24,7 +24,7 @@ public class Passenger {
     @Column(length = 20)
     private String series;
 
-    @Column(name = "isDeleted", columnDefinition = "boolean default false")
+    @Column(name = "isInsured", columnDefinition = "boolean default false")
     private boolean isInsured;
 
     @Column(name = "phone_number",length =15)
