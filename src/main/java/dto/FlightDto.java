@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.util.UUID;
 
 @Data
+@Accessors(fluent = true, chain = true)
 public class FlightDto {
 
     private UUID id;

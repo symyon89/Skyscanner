@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Data
+@Accessors(fluent = true, chain = true)
 public class AircraftDto {
 
     private UUID id;

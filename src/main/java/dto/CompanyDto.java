@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import java.util.UUID;
 
 @Data
+@Accessors(fluent = true, chain = true)
 public class CompanyDto {
 
     private UUID id;
