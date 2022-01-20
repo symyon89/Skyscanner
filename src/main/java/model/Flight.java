@@ -1,6 +1,7 @@
 package model;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalTime;
@@ -8,8 +9,10 @@ import java.util.UUID;
 
 @Entity
 @Data
+@Accessors(fluent = true, chain = true)
 public class Flight {
     @Id
+    @GeneratedValue(generator = "UUID2")
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
