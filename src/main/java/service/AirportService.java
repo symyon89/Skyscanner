@@ -41,5 +41,25 @@ public class AirportService {
         airportRepository.remove(airportMapper.fromDto(airportDto));
     }
 
+    public List<AirportDto> findByName(String name) {
+        return airportRepository.findBy("from Airport","name", name)
+                .stream()
+                .map(airport -> airportMapper.toDto(airport))
+                .collect(Collectors.toList());
+    }
+
+    public List<AirportDto> findByCity(String city) {
+        return airportRepository.findBy("from Airport","city", city)
+                .stream()
+                .map(airport -> airportMapper.toDto(airport))
+                .collect(Collectors.toList());
+    }
+
+    public List<AirportDto> findByCode(String code) {
+        return airportRepository.findBy("from Airport","code", code)
+                .stream()
+                .map(airport -> airportMapper.toDto(airport))
+                .collect(Collectors.toList());
+    }
 
 }

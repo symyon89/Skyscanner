@@ -3,7 +3,6 @@ package dto;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.UUID;
 

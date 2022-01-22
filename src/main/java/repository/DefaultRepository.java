@@ -35,8 +35,16 @@ public class DefaultRepository<T>  {
         remove(object);
     }
 
+    public void removeById(int id, Class<T> clazz) {
+        T object = findById(id,clazz);
+        remove(object);
+    }
+
     public List<T> findBy(String query,String nameTable, String whatToSearch) {
-        return util.getEntityManager().createQuery(query + " where " + nameTable + " =:p" ).setParameter("p",whatToSearch).getResultList();
+        return util.getEntityManager()
+                .createQuery(query + " where " + nameTable + " like :parameter" )
+                .setParameter("parameter","%" + whatToSearch + "%")
+                .getResultList();
     }
 
 }
