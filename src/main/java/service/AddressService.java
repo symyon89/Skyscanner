@@ -3,7 +3,6 @@ package service;
 
 import dto.AddressDto;
 import lombok.Data;
-import lombok.experimental.Accessors;
 import model.Address;
 
 import repository.DefaultRepository;
@@ -15,7 +14,6 @@ import java.util.stream.Collectors;
 
 
 @Data
-@Accessors(fluent = true, chain = true)
 public class AddressService {
     private DefaultRepository<Address> addressRepository;
     private AddressMapper addressMapper = new AddressMapper();
@@ -33,8 +31,8 @@ public class AddressService {
     }
 
     public List<AddressDto> findAll() {
-        List<Address> address = addressRepository.findAll("from Address");
-        return address.stream()
+        return addressRepository.findAll("from Address")
+                .stream()
                 .map(a -> addressMapper.toDto(a))
                 .collect(Collectors.toList());
     }

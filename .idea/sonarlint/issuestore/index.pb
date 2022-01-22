@@ -11,12 +11,6 @@ O
 src/main/java/model/Flight.java,1\0\10907b2fba2a3bb1c7b71bdd21f19b7dfdca6a55
 R
 "src/main/java/model/Passenger.java,0\b\0b031eee37b640eb0efcac41c6eee19ff5fd32df
-R
-"src/main/java/dto/AircraftDto.java,8\7\8727ca8dbf37016c0626a2e70258d2f579e11f7b
-Q
-!src/main/java/dto/AirportDto.java,c\9\c92de61e65c03ffce90b5d7e2285571a5e0dfff4
-Q
-!src/main/java/dto/CompanyDto.java,4\2\42c40e5ec0b328fa09bfd0d4129c2b01ef0280d0
 Q
 !src/main/java/dto/CountryDto.java,b\f\bf167e6848f71a8dcb33a13869710a30aeb8bc5f
 P
