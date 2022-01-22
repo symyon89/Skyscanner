@@ -18,6 +18,5 @@ public class CountryMapper {
                 .countryCode(country.countryCode())
                 .countryName(country.countryName())
                 .id(country.id());
-
     }
 }

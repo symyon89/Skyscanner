@@ -3,7 +3,6 @@ package service;
 
 import dto.AddressDto;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import model.Address;
 
@@ -11,6 +10,7 @@ import repository.DefaultRepository;
 
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Accessors(fluent = true, chain = true)
 public class AddressService {
     private DefaultRepository<Address> addressRepository;
-    private CountryMapper countryMapper = new CountryMapper();
+    private AddressMapper addressMapper = new AddressMapper();
 
     public AddressService() {
         this.addressRepository = new DefaultRepository<>();
@@ -28,27 +28,21 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-   public void save(AddressDto addressDto) {
-        Address address = new Address();
-        address.building(addressDto.building());
-        address.street(addressDto.street());
-        address.city(addressDto.city());
-        address.appartement(addressDto.appartement());
-        address.county(addressDto.county());
-        address.id(addressDto.id());
-        address.country(countryMapper.fromDto(addressDto.country()));
-        addressRepository.save(address);
-   }
+    public void save(AddressDto addressDto) {
+        addressRepository.save(addressMapper.fromDto(addressDto));
+    }
 
-   public List<AddressDto> findAll() {
-       List<Address> address = addressRepository.findAll("from Address");
-       return address.stream().map(a ->{
-           AddressDto addressDto = new AddressDto();
-            addressDto.appartement(a.appartement());
-           return addressDto;
-       }).collect(Collectors.toList());
-   }
+    public List<AddressDto> findAll() {
+        List<Address> address = addressRepository.findAll("from Address");
+        return address.stream()
+                .map(a -> addressMapper.toDto(a))
+                .collect(Collectors.toList());
+    }
 
-
-
+    public AddressDto findById(UUID id) {
+        return addressMapper.toDto(addressRepository.findById(id,Address.class));
+    }
+    public void remove(UUID id) {
+        addressRepository.removeById(id,Address.class);
+    }
 }
