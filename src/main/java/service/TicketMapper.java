@@ -16,7 +16,7 @@ public class TicketMapper {
                 .flight(flightMapper.fromDto(ticketDto.flight()));
     }
 
-    public TicketDto fromDto(Ticket ticket) {
+    public TicketDto toDto(Ticket ticket) {
         return new TicketDto()
                 .id(ticket.id())
                 .passenger(passengerMapper.toDto(ticket.passenger()))
