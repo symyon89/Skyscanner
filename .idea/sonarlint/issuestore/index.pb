@@ -9,10 +9,6 @@ P
  src/main/java/model/Airport.java,b\b\bb3822fd832c2318426455cf18f4cbb114a31cd5
 O
 src/main/java/model/Flight.java,1\0\10907b2fba2a3bb1c7b71bdd21f19b7dfdca6a55
-R
-"src/main/java/model/Passenger.java,0\b\0b031eee37b640eb0efcac41c6eee19ff5fd32df
-O
-src/main/java/model/Ticket.java,f\7\f79fc8893f0212d415b741235dbdbde746006075
 P
  src/main/java/model/Company.java,8\4\8490857d53cf66d08da4ce949a6adb4c59c14063
 [

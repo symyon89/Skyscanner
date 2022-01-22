@@ -6,6 +6,7 @@ import model.Ticket;
 import repository.DefaultRepository;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Data
@@ -27,6 +28,21 @@ public class TicketService {
 
     public List<TicketDto> findAll() {
         return ticketRepository.findAll("from Ticket")
+                .stream()
+                .map(ticket -> ticketMapper.toDto(ticket))
+                .collect(Collectors.toList());
+    }
+
+    public TicketDto findById(UUID id) {
+        return ticketMapper.toDto(ticketRepository.findById(id,Ticket.class));
+    }
+
+    public void remove(UUID id) {
+        ticketRepository.removeById(id,Ticket.class);
+    }
+
+    public List<TicketDto> findByCode(String code) {
+        return ticketRepository.findBy("from Ticket","code", code)
                 .stream()
                 .map(ticket -> ticketMapper.toDto(ticket))
                 .collect(Collectors.toList());

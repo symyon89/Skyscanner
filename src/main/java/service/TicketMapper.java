@@ -4,24 +4,34 @@ import dto.TicketDto;
 import model.Ticket;
 
 public class TicketMapper {
-    private PassengerMapper passengerMapper = new PassengerMapper();
-    private FlightMapper flightMapper = new FlightMapper();
+    private final PassengerMapper passengerMapper = new PassengerMapper();
+    private final FlightMapper flightMapper = new FlightMapper();
 
     public Ticket fromDto(TicketDto ticketDto) {
-        return new Ticket()
+        Ticket ticket = new Ticket()
                 .id(ticketDto.id())
-                .passenger(passengerMapper.fromDto(ticketDto.passenger()))
                 .seat(ticketDto.seat())
-                .code(ticketDto.code())
-                .flight(flightMapper.fromDto(ticketDto.flight()));
+                .code(ticketDto.code());
+        if(ticketDto.passenger() != null) {
+            ticket.passenger(passengerMapper.fromDto(ticketDto.passenger()));
+        }
+        if(ticketDto.flight() != null) {
+            ticket.flight(flightMapper.fromDto(ticketDto.flight()));
+        }
+        return ticket;
     }
 
     public TicketDto toDto(Ticket ticket) {
-        return new TicketDto()
+        TicketDto ticketDto = new TicketDto()
                 .id(ticket.id())
-                .passenger(passengerMapper.toDto(ticket.passenger()))
                 .seat(ticket.seat())
-                .code(ticket.code())
-                .flight(flightMapper.toDto(ticket.flight()));
+                .code(ticket.code());
+        if (ticket.passenger() != null) {
+            ticketDto.passenger(passengerMapper.toDto(ticket.passenger()));
+        }
+        if (ticket.flight() != null) {
+            ticketDto.flight(flightMapper.toDto(ticket.flight()));
+        }
+        return ticketDto;
     }
 }

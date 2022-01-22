@@ -4,21 +4,28 @@ import dto.AircraftDto;
 import model.Aircraft;
 
 public class AircraftMapper {
-    private CompanyMapper companyMapper = new CompanyMapper();
+    private final CompanyMapper companyMapper = new CompanyMapper();
 
     public Aircraft fromDto(AircraftDto aircraftDto) {
-        return new Aircraft()
+        Aircraft aircraft =  new Aircraft()
                 .id(aircraftDto.id())
                 .name(aircraftDto.name())
-                .seats(aircraftDto.seats())
-                .company(companyMapper.fromDto(aircraftDto.company()));
+                .seats(aircraftDto.seats());
+        if(aircraftDto.company() != null) {
+            aircraft.company(companyMapper.fromDto(aircraftDto.company()));
+        }
+        return aircraft;
     }
 
     public AircraftDto toDto(Aircraft aircraft) {
-        return new AircraftDto()
+        AircraftDto aircraftDto = new AircraftDto()
                 .id(aircraft.id())
                 .name(aircraft.name())
-                .seats(aircraft.seats())
-                .company(companyMapper.toDto(aircraft.company()));
+                .seats(aircraft.seats());
+        if (aircraftDto.company() != null){
+            aircraftDto.company(companyMapper.toDto(aircraft.company()));
+        }
+        return aircraftDto;
+
     }
 }

@@ -4,12 +4,11 @@ import dto.PassengerDto;
 import model.Passenger;
 
 public class PassengerMapper {
-    private AddressMapper addressMapper = new AddressMapper();
+    private final AddressMapper addressMapper = new AddressMapper();
 
     public Passenger fromDto(PassengerDto passengerDto) {
-        return new Passenger()
+        Passenger passenger = new Passenger()
                 .id(passengerDto.id())
-                .address(addressMapper.fromDto(passengerDto.address()))
                 .firstName(passengerDto.firstName())
                 .lastName(passengerDto.lastName())
                 .number(passengerDto.number())
@@ -17,12 +16,15 @@ public class PassengerMapper {
                 .isInsured(passengerDto.isInsured())
                 .phoneNumber(passengerDto.phoneNumber())
                 .email(passengerDto.email());
+        if(passengerDto.address() != null) {
+            passenger.address(addressMapper.fromDto(passengerDto.address()));
+        }
+        return passenger;
     }
 
     public PassengerDto toDto(Passenger passenger) {
-        return new PassengerDto()
+        PassengerDto passengerDto = new PassengerDto()
                 .id(passenger.id())
-                .address(addressMapper.toDto(passenger.address()))
                 .firstName(passenger.firstName())
                 .lastName(passenger.lastName())
                 .number(passenger.number())
@@ -30,5 +32,9 @@ public class PassengerMapper {
                 .isInsured(passenger.isInsured())
                 .phoneNumber(passenger.phoneNumber())
                 .email(passenger.email());
+        if(passengerDto.address() != null) {
+            passengerDto.address(addressMapper.toDto(passenger.address()));
+        }
+        return passengerDto;
     }
 }
