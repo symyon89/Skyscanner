@@ -5,7 +5,6 @@ import model.Country;
 import org.junit.jupiter.api.Test;
 
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CountryMapperTest {
@@ -30,10 +29,11 @@ class CountryMapperTest {
 
         // THEN
 
-        assertEquals(countryDto.id(),requiredResult.id());
-        assertEquals(countryDto.countryCode(),requiredResult.countryCode());
-        assertEquals(countryDto.countryName(),requiredResult.countryName());
+        assertEquals(countryDto.id(), requiredResult.id());
+        assertEquals(countryDto.countryCode(), requiredResult.countryCode());
+        assertEquals(countryDto.countryName(), requiredResult.countryName());
     }
+
     @Test
     void fromDto_returns_nullModelCountry() {
 
@@ -47,13 +47,32 @@ class CountryMapperTest {
 
         // THEN
 
-        assertEquals(null,requiredResult.id());
-        assertEquals(null,requiredResult.countryCode());
-        assertEquals(null,requiredResult.countryName());
+        assertEquals(null, requiredResult.id());
+        assertEquals(null, requiredResult.countryCode());
+        assertEquals(null, requiredResult.countryName());
     }
 
     @Test
     void toDto_returns_dtoCountry() {
+        // GIVEN
+        CountryMapper countryMapper = new CountryMapper();
+        Country countryToTest = new Country()
+                .id(COUNTRY_ID)
+                .countryName(COUNTRY_NAME)
+                .countryCode(COUNTRY_CODE);
+
+        // WHEN
+        CountryDto countryDto = countryMapper.toDto(countryToTest);
+
+        // THEN
+
+        assertEquals(countryToTest.id(), countryDto.id());
+        assertEquals(countryToTest.countryName(), countryDto.countryName());
+        assertEquals(countryToTest.countryCode(), countryDto.countryCode());
+    }
+
+    @Test
+    void toDto_returns_nulldtoCountry() {
         // GIVEN
         CountryMapper countryMapper = new CountryMapper();
         Country countryToTest = null;
@@ -63,8 +82,9 @@ class CountryMapperTest {
 
         // THEN
 
-        assertEquals(null,countryDto.id());
-        assertEquals(null,countryDto.countryName());
-        assertEquals(null,countryDto.countryCode());
+        assertEquals(null, countryDto.id());
+        assertEquals(null, countryDto.countryName());
+        assertEquals(null, countryDto.countryCode());
     }
+
 }

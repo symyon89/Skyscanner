@@ -40,7 +40,7 @@ class AdressServiceTest {
     }
 
     @Test
-    void findByID_calls_repositoryFindByID () {
+    void findByID_calls_repositoryFindByID() {
         // GIVEN
         UUID id = UUID.randomUUID();
 
@@ -49,7 +49,7 @@ class AdressServiceTest {
         Mockito.when(addressService.findById(id)).thenReturn(new AddressDto());
 
         // THEN
-        Mockito.verify(addressRepository).findById(id,Address.class);
+        Mockito.verify(addressRepository).findById(id, Address.class);
     }
 
     @Test
@@ -62,7 +62,7 @@ class AdressServiceTest {
         addressService.remove(id);
 
         // THEN
-        Mockito.verify(addressRepository).removeById(id,Address.class);
+        Mockito.verify(addressRepository).removeById(id, Address.class);
     }
 
 }
