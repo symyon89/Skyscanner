@@ -7,30 +7,27 @@ public class AirportMapper {
     private final AddressMapper addressMapper = new AddressMapper();
 
     public Airport fromDto(AirportDto airportDto) {
-        Airport airport = new Airport()
+
+        return airportDto == null ? new Airport() : new Airport()
                 .id(airportDto.id())
                 .name(airportDto.name())
                 .city(airportDto.city())
                 .code(airportDto.code())
                 .airstrips(airportDto.airstrips())
-                .gates(airportDto.gates());
-        if(airportDto.address() != null) {
-            airport.address(addressMapper.fromDto(airportDto.address()));
-        }
-        return airport;
+                .gates(airportDto.gates())
+                .address(addressMapper.fromDto(airportDto.address()));
+
     }
 
     public AirportDto toDto(Airport airport) {
-        AirportDto airportDto = new AirportDto()
+
+        return airport == null ? new AirportDto() : new AirportDto()
                 .id(airport.id())
                 .name(airport.name())
                 .city(airport.city())
                 .code(airport.code())
                 .airstrips(airport.airstrips())
-                .gates(airport.gates());
-        if (airport.address() != null) {
-            airportDto.address(addressMapper.toDto(airport.address()));
-        }
-        return airportDto;
+                .gates(airport.gates())
+                .address(addressMapper.toDto(airport.address()));
     }
 }

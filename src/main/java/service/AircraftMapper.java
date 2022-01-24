@@ -7,25 +7,22 @@ public class AircraftMapper {
     private final CompanyMapper companyMapper = new CompanyMapper();
 
     public Aircraft fromDto(AircraftDto aircraftDto) {
-        Aircraft aircraft =  new Aircraft()
+
+        return aircraftDto == null ? new Aircraft() : new Aircraft()
                 .id(aircraftDto.id())
                 .name(aircraftDto.name())
-                .seats(aircraftDto.seats());
-        if(aircraftDto.company() != null) {
-            aircraft.company(companyMapper.fromDto(aircraftDto.company()));
-        }
-        return aircraft;
+                .seats(aircraftDto.seats())
+                .company(companyMapper.fromDto(aircraftDto.company()));
+
     }
 
     public AircraftDto toDto(Aircraft aircraft) {
-        AircraftDto aircraftDto = new AircraftDto()
+
+        return aircraft == null ? new AircraftDto() : new AircraftDto()
                 .id(aircraft.id())
                 .name(aircraft.name())
-                .seats(aircraft.seats());
-        if (aircraftDto.company() != null){
-            aircraftDto.company(companyMapper.toDto(aircraft.company()));
-        }
-        return aircraftDto;
+                .seats(aircraft.seats())
+                .company(companyMapper.toDto(aircraft.company()));
 
     }
 }

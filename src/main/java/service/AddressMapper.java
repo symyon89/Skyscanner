@@ -7,31 +7,30 @@ public class AddressMapper {
     private final CountryMapper countryMapper = new CountryMapper();
 
     public Address fromDto(AddressDto addressDto) {
-        Address address = new Address()
+
+        return addressDto == null ? new Address() : new Address()
                 .appartement(addressDto.appartement())
                 .id(addressDto.id())
                 .street(addressDto.street())
                 .number(addressDto.number())
                 .building(addressDto.building())
                 .city(addressDto.city())
-                .county(addressDto.county());
-        if(addressDto.country() != null){
-            address.country(countryMapper.fromDto(addressDto.country()));
-        }
-        return address;
+                .county(addressDto.county())
+                .country(countryMapper.fromDto(addressDto.country()));
+
     }
+
     public AddressDto toDto(Address address) {
-        AddressDto addressDto = new AddressDto()
+
+        return address == null ? new AddressDto() : new AddressDto()
                 .appartement(address.appartement())
                 .id(address.id())
                 .street(address.street())
                 .number(address.number())
                 .building(address.building())
                 .city(address.city())
-                .county(address.county());
-        if(address.country() != null) {
-            addressDto.country(countryMapper.toDto(address.country()));
-        }
-        return addressDto;
+                .county(address.county())
+                .country(countryMapper.toDto(address.country()));
+
     }
 }

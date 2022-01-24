@@ -34,23 +34,37 @@ class CountryMapperTest {
         assertEquals(countryDto.countryCode(),requiredResult.countryCode());
         assertEquals(countryDto.countryName(),requiredResult.countryName());
     }
+    @Test
+    void fromDto_returns_nullModelCountry() {
+
+        // GIVEN
+        CountryMapper countryMapper = new CountryMapper();
+        CountryDto countryDto = null;
+        Country requiredResult;
+
+        // WHEN
+        requiredResult = countryMapper.fromDto(countryDto);
+
+        // THEN
+
+        assertEquals(null,requiredResult.id());
+        assertEquals(null,requiredResult.countryCode());
+        assertEquals(null,requiredResult.countryName());
+    }
 
     @Test
     void toDto_returns_dtoCountry() {
         // GIVEN
         CountryMapper countryMapper = new CountryMapper();
-        Country countryToTest = new Country()
-                .id(COUNTRY_ID)
-                .countryName(COUNTRY_NAME)
-                .countryCode(COUNTRY_CODE);
+        Country countryToTest = null;
 
         // WHEN
         CountryDto countryDto = countryMapper.toDto(countryToTest);
 
         // THEN
 
-        assertEquals(countryToTest.id(),countryDto.id());
-        assertEquals(countryToTest.countryName(),countryDto.countryName());
-        assertEquals(countryToTest.countryCode(),countryDto.countryCode());
+        assertEquals(null,countryDto.id());
+        assertEquals(null,countryDto.countryName());
+        assertEquals(null,countryDto.countryCode());
     }
 }

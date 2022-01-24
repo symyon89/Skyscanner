@@ -8,30 +8,21 @@ public class TicketMapper {
     private final FlightMapper flightMapper = new FlightMapper();
 
     public Ticket fromDto(TicketDto ticketDto) {
-        Ticket ticket = new Ticket()
+        return ticketDto == null ? new Ticket() : new Ticket()
                 .id(ticketDto.id())
                 .seat(ticketDto.seat())
-                .code(ticketDto.code());
-        if(ticketDto.passenger() != null) {
-            ticket.passenger(passengerMapper.fromDto(ticketDto.passenger()));
-        }
-        if(ticketDto.flight() != null) {
-            ticket.flight(flightMapper.fromDto(ticketDto.flight()));
-        }
-        return ticket;
+                .code(ticketDto.code())
+                .passenger(passengerMapper.fromDto(ticketDto.passenger()))
+                .flight(flightMapper.fromDto(ticketDto.flight()));
     }
 
     public TicketDto toDto(Ticket ticket) {
-        TicketDto ticketDto = new TicketDto()
+        return ticket == null ? new TicketDto() : new TicketDto()
                 .id(ticket.id())
                 .seat(ticket.seat())
-                .code(ticket.code());
-        if (ticket.passenger() != null) {
-            ticketDto.passenger(passengerMapper.toDto(ticket.passenger()));
-        }
-        if (ticket.flight() != null) {
-            ticketDto.flight(flightMapper.toDto(ticket.flight()));
-        }
-        return ticketDto;
+                .code(ticket.code())
+                .passenger(passengerMapper.toDto(ticket.passenger()))
+                .flight(flightMapper.toDto(ticket.flight()));
+
     }
 }
