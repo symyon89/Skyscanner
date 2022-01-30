@@ -21,34 +21,18 @@ P
  src/main/java/model/Country.java,9\7\9793defed2d41cd60517aae98fcecd58035db3b9
 Q
 !src/main/java/dto/CompanyDto.java,4\2\42c40e5ec0b328fa09bfd0d4129c2b01ef0280d0
-Y
-)src/main/java/service/CountryService.java,2\d\2dca681a332e5d8cf61fa3e9c006ea073086e370
-Q
-!src/main/java/dto/CountryDto.java,b\f\bf167e6848f71a8dcb33a13869710a30aeb8bc5f
 S
 #src/main/java/dto/PassengerDto.java,d\c\dc59841ec6bf6aed2b3e0100059028521cc9f051
-X
-(src/main/java/service/FlightService.java,6\c\6c2e5b536f56a28221cf438880e18568efcda4f7
 R
 "src/main/java/model/Passenger.java,0\b\0b031eee37b640eb0efcac41c6eee19ff5fd32df
 O
 src/main/java/model/Ticket.java,f\7\f79fc8893f0212d415b741235dbdbde746006075
-c
-3src/test/java/repository/DefaultRepositoryTest.java,1\4\1492fd2db00b873114cc48704a53f346b01bb8cf
-Y
-)src/main/java/service/CompanyService.java,7\b\7b9fe624cd31d8ed66468d3c45d0f0e54851adc8
 _
 /src/main/java/repository/DefaultRepository.java,5\7\571bfaa8c6599591595c4983538d399c216eaf5c
 G
 src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
-[
-+src/main/java/service/PassengerService.java,5\b\5b2801acc5db27e97707495b0682a94655060d1e
-X
-(src/main/java/service/TicketService.java,6\5\6582629a9af8af2d3eb157960c3a503713933db4
 X
 (src/main/java/service/CountryMapper.java,a\c\acbaf20e1bf2554f7c4c2c3528da23d6406a7910
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-P
- src/main/java/model/Company.java,8\4\8490857d53cf66d08da4ce949a6adb4c59c14063

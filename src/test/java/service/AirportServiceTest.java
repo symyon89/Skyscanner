@@ -1,8 +1,6 @@
 package service;
 
-import dto.AircraftDto;
 import dto.AirportDto;
-import model.Aircraft;
 import model.Airport;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
