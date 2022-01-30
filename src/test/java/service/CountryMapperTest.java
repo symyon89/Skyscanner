@@ -39,17 +39,16 @@ class CountryMapperTest {
 
         // GIVEN
         CountryMapper countryMapper = new CountryMapper();
-        CountryDto countryDto = null;
         Country requiredResult;
 
         // WHEN
-        requiredResult = countryMapper.fromDto(countryDto);
+        requiredResult = countryMapper.fromDto(null);
 
         // THEN
 
-        assertEquals(null, requiredResult.id());
-        assertEquals(null, requiredResult.countryCode());
-        assertEquals(null, requiredResult.countryName());
+        assertNull(requiredResult.id());
+        assertNull(requiredResult.countryCode());
+        assertNull(requiredResult.countryName());
     }
 
     @Test
@@ -75,16 +74,15 @@ class CountryMapperTest {
     void toDto_returns_nulldtoCountry() {
         // GIVEN
         CountryMapper countryMapper = new CountryMapper();
-        Country countryToTest = null;
 
         // WHEN
-        CountryDto countryDto = countryMapper.toDto(countryToTest);
+        CountryDto countryDto = countryMapper.toDto(null);
 
         // THEN
 
-        assertEquals(null, countryDto.id());
-        assertEquals(null, countryDto.countryName());
-        assertEquals(null, countryDto.countryCode());
+        assertNull(countryDto.id());
+        assertNull(countryDto.countryName());
+        assertNull(countryDto.countryCode());
     }
 
 }

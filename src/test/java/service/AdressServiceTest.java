@@ -36,7 +36,7 @@ class AdressServiceTest {
         addressService.findAll();
 
         // THEN
-        Mockito.verify(addressRepository).findAll(any());
+        Mockito.verify(addressRepository).findAll("from Address");
     }
 
     @Test

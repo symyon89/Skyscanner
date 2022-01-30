@@ -37,8 +37,8 @@ public class AirportService {
     public AirportDto findById(UUID id) {
         return airportMapper.toDto(airportRepository.findById(id,Airport.class));
     }
-    public void remove(AirportDto airportDto) {
-        airportRepository.remove(airportMapper.fromDto(airportDto));
+    public void remove(UUID id) {
+        airportRepository.removeById(id,Airport.class);
     }
 
     public List<AirportDto> findByName(String name) {

@@ -44,19 +44,18 @@ class AddressMapperTest {
     void fromDto_returns_nullModelAddress() {
         // GIVEN
         AddressMapper addressMapper = new AddressMapper();
-        AddressDto addressDto = null;
 
         // WHEN
-        Address result = addressMapper.fromDto(addressDto);
+        Address result = addressMapper.fromDto(null);
 
         // THEN
-        assertEquals(null, result.id());
-        assertEquals(null, result.appartement());
-        assertEquals(null, result.number());
-        assertEquals(null, result.building());
-        assertEquals(null, result.street());
-        assertEquals(null, result.county());
-        assertEquals(null, result.country());
+        assertNull( result.id());
+        assertNull( result.appartement());
+        assertNull( result.number());
+        assertNull( result.building());
+        assertNull( result.street());
+        assertNull( result.county());
+        assertNull( result.country());
     }
 
     @Test
@@ -89,18 +88,17 @@ class AddressMapperTest {
     void toDto_returns_nullAddressDto() {
         // GIVEN
         AddressMapper addressMapper = new AddressMapper();
-        Address address = null;
 
         // WHEN
-        AddressDto result = addressMapper.toDto(address);
+        AddressDto result = addressMapper.toDto(null);
 
         // THEN
-        assertEquals(null, result.id());
-        assertEquals(null, result.appartement());
-        assertEquals(null, result.number());
-        assertEquals(null, result.building());
-        assertEquals(null, result.street());
-        assertEquals(null, result.county());
-        assertEquals(null, result.country());
+        assertNull( result.id());
+        assertNull( result.appartement());
+        assertNull( result.number());
+        assertNull( result.building());
+        assertNull( result.street());
+        assertNull( result.county());
+        assertNull( result.country());
     }
 }

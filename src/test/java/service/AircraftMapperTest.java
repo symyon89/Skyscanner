@@ -1,9 +1,7 @@
 package service;
 
 import dto.AircraftDto;
-import dto.AirportDto;
 import dto.CompanyDto;
-import dto.CountryDto;
 import model.Aircraft;
 import model.Company;
 import org.junit.jupiter.api.Test;
@@ -42,16 +40,15 @@ class AircraftMapperTest {
     void fromDto_returns_nullModelAircraft() {
         // GIVEN
         AircraftMapper aircraftMapper = new AircraftMapper();
-        AircraftDto aircraftDto = null;
 
         // WHEN
-        Aircraft result = aircraftMapper.fromDto(aircraftDto);
+        Aircraft result = aircraftMapper.fromDto(null);
 
         // THEN
-        assertEquals(null, result.id());
-        assertEquals(null, result.name());
+        assertNull(result.id());
+        assertNull(result.name());
         assertEquals(0, result.seats());
-        assertEquals(null, result.company());
+        assertNull( result.company());
 
     }
 
@@ -79,15 +76,14 @@ class AircraftMapperTest {
     void toDto_returns_nullAircraftDto() {
         // GIVEN
         AircraftMapper aircraftMapper = new AircraftMapper();
-        Aircraft aircraft = null;
 
         // WHEN
-        AircraftDto result = aircraftMapper.toDto(aircraft);
+        AircraftDto result = aircraftMapper.toDto(null);
 
         // THEN
-        assertEquals(null, result.id());
-        assertEquals(null, result.name());
+        assertNull( result.id());
+        assertNull( result.name());
         assertEquals(0, result.seats());
-        assertEquals(null, result.company());
+        assertNull(result.company());
     }
 }
