@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class PassengerMapperTest {
     private final UUID ID = UUID.randomUUID();
     private final String TESTSTRING = "test";
-    private final int TESTINT = 10;
     private final boolean TESTTRUE = true;
     private final AddressMapper addressMapper = new AddressMapper();
 
@@ -61,7 +60,7 @@ class PassengerMapperTest {
         assertNull(result.lastName());
         assertNull(result.number());
         assertNull(result.series());
-        assertEquals(false,result.isInsured());
+        assertFalse(result.isInsured());
         assertNull(result.phoneNumber());
         assertNull(result.email());
         assertNull(result.address());
@@ -111,7 +110,7 @@ class PassengerMapperTest {
         assertNull(result.lastName());
         assertNull(result.number());
         assertNull(result.series());
-        assertEquals(false,result.isInsured());
+        assertFalse(result.isInsured());
         assertNull(result.phoneNumber());
         assertNull(result.email());
         assertNull(result.address());

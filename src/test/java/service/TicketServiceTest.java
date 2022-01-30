@@ -1,8 +1,6 @@
 package service;
 
-import dto.AirportDto;
 import dto.TicketDto;
-import model.Airport;
 import model.Ticket;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -10,7 +8,6 @@ import repository.DefaultRepository;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
 class TicketServiceTest {
